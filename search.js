@@ -40,22 +40,24 @@ else
 }
 
 function binarySearchRecursive(array, value) {
-    return bSearch(array, value, 0, array.length);
+    let sortedArray = array.sort();
+    return bSearch(sortedArray, value, 0, array.length);
 }
 
 function binarySearch(arr, val) {
+  let sortedArray = arr.sort();
   let startPoint = 0;
-  let endPoint = arr.length - 1;
+  let endPoint = sortedArray.length - 1;
   
   while(startPoint <= endPoint) {
   let midPoint = Math.floor((startPoint + endPoint) / 2)
-    if(arr[midPoint] === val) {
+    if(sortedArray[midPoint] === val) {
       return midPoint
     }
-    if(val > arr[midPoint]) {
+    if(val > sortedArray[midPoint]) {
       startPoint = midPoint + 1;
     } 
-    if(val < arr[midPoint]) {
+    if(val < sortedArray[midPoint]) {
       endPoint = midPoint - 1;
     } 
   }
